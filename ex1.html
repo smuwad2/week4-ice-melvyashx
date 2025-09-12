@@ -17,15 +17,32 @@
 
         <script>
         
-            function validateForm(formName) {
+            function validateForm(formName)
+                {var form = document.forms[formName];
+                var id = form["id"].value.trim();
+                var age = parseInt(form["age"].value.trim());
+                var email = form["email"].value.trim();
+                var password = form["password"].value.trim();
+                var errorMessages = "";
                 // Error messages:
+                if (id.length>10)
+                    {errorMessages += "ID length cannot exceed 10 characters. \n";}
                 // Invalid age: Age must be between 10 and 40.
+                if (isNaN(age) || age<10 || age>40)
+                    {errorMessages += "Age must be between 10 and 40. \n";}
                 // Invalid email: Email must contain the character @.
+                if (!email.includes("@")) // OR email.indexOf("@")==-1
+                    {errorMessages += "Email must contain the character @. \n";}
                 // Empty password: Password must be non-empty.
-                var errorMessages="";
+                 if (password === "")
+                    {errorMessages += "Password must be non-empty. \n";}
                 
-                
-            }
+                if (errorMessages !== "")
+                    {alert(errorMessages);
+                    return false;}
+                    return true;
+                    
+                }
      
          </script>
 </body>

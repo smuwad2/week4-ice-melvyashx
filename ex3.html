@@ -1,0 +1,46 @@
+<html>
+
+<head>
+   <title>Event Handling</title>
+</head>
+
+<body>
+
+   <h1>Shopping List</h1>
+   <p>Get it done today</p>
+
+   <input type="text" id="inputText">
+   <button id="addButton">Enter</button>
+   <!-- add a button here for adding new item -->
+
+   <ul id="shoppingList">
+      <li>Notebook<!--<button>Delete</button></li>-->
+      <li>Jello</li>
+      <li>Spinach</li>
+      <li>Rice</li>
+      <li>Birthday Cake</li>
+      <li>Candles</li>
+   </ul>
+
+   <script>
+
+      // add code here
+    const input = document.getElementById("inputText");
+    const button = document.getElementById("addButton");
+    const shopping = document.getElementById("shoppingList");
+
+    function addItem()
+        {const item = document.getElementById("inputText").value;
+        let liElem = document.createElement("li");
+        liElem.innerText=item;
+        shopping.appendChild(liElem);}
+        //const ulElem=document.getElementById("ul");
+        // ulElem.appendChild(liElem);
+
+    button.addEventListener("click", addItem);
+
+   </script>
+
+</body>
+
+</html>
